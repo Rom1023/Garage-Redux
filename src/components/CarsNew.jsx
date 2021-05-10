@@ -9,7 +9,7 @@ import Garage from '../containers/Garage';
 const CarsNew = () => {
   onSubmit = (values) => {
     this.props.addCar(props.garage, values, (car) => {
-      this.props.history.push('/'); // Navigate after submit
+      this.props.history.push('/'); // Navigate to index after submit
       return car;
   });
 
