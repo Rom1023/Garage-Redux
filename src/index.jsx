@@ -6,6 +6,7 @@ import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
+import { reducer as formReducer } from 'redux-form';
 
 import '../assets/stylesheets/application.scss';
 
@@ -28,7 +29,8 @@ const identityReducer = (state = null) => state;
 
 const reducers = combineReducers({
   cars: carsReducer,
-  garage: identityReducer
+  garage: identityReducer,
+  form: formReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -39,7 +41,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" component={CarsIndex} />
-        <Route path="/cars/new" exact component={CarsNew} />
+        <Route path="/cars/new" component={CarsNew} />
       </Switch>
     </Router>
   </Provider>,

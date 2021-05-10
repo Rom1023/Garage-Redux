@@ -13,13 +13,15 @@ export const fetchCars = (garage) => {
   };
 };
 
-export const addCar = (garage, brand, model, owner, plate) => {
-  const body = { brand, model, owner, plate };
+export const addCar = (garage, body, callback) => {
+  // const body = { brand, model, owner, plate };
   const promise = fetch(`${BASE_URL}${garage}/cars`, {
     method: "POST",
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   })
-    .then(response => response.json());
+    .then(response => response.json())
+    .then(callback);
   return {
     type: ADD_CAR,
     payload: promise
