@@ -3,13 +3,13 @@ import React from 'react';
 import CarList from '../containers/CarList';
 import Garage from '../containers/Garage';
 
-const App = (props) => {
+const CarsIndex = (props) => {
   return (
-    <div className="app">
+    <div className="cars-index">
       <Garage />
       <CarList garageFromParams={props.match.params.garage} />
     </div>
   );
 };
 
-export default App;
+export default CarsIndex;

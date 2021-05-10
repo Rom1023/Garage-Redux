@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Car from '../components/Car';
+import Car from '../containers/Car';
 
 import { fetchCars } from '../actions';
 
