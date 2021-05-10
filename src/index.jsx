@@ -9,8 +9,13 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 
+import App from './components/App';
+
+import carsReducer from './reducers/carsReducer';
+
 const reducers = combineReducers({
-  // key: reducer
+  cars: carsReducer,
+  userName: 'Anonymous' // || prompt('Veuillez saisir votre username');
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -20,7 +25,8 @@ ReactDOM.render(
   <Provider store={createStore(reducers, {}, middlewares)}>
     <Router history={history}>
       <Switch>
-        TODO
+        <Route path='/:garage' component={App} />
+        <Redirect from='/' to='/general' />
       </Switch>
     </Router>
   </Provider>,
