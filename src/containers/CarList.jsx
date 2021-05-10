@@ -11,8 +11,6 @@ class CarList extends Component {
     this.props.fetchCars(this.props.garageFromParams);
   }
 
-// this.props.addCar(this.props.garageFromParams, this.props.cars.brand, this.props.cars.model, this.props.cars.owner, this.props.cars.plate);
-
   render () {
     return (
       <div>
