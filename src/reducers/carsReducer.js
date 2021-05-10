@@ -1,10 +1,17 @@
-import FETCH_CARS from '../actions';
+import { FETCH_CARS, ADD_CAR } from '../actions';
 
-export const carsReducer = (state = [], action) => {
+const carsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_CARS :
       return action.payload;
+    case ADD_CAR : {
+      const copiedState = state.slice(0);
+      copiedState.push(action.payload);
+      return copiedState;
+    }
     default:
       return state;
   }
 };
+
+export default carsReducer;
