@@ -1,8 +1,10 @@
 import React from 'react';
 
-const App = () => {
+import CarList from '../containers/CarList';
+
+const App = (props) => {
   return (
-    <h1>Hello People</h1>
+    <CarList garageFromParams={props.match.params.garage} />
   );
 };
 
