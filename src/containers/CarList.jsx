@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Car from '../components/Car';
 
-import fetchCars from '../actions';
+import { fetchCars } from '../actions';
 
 class CarList extends Component {
   componentWillMount() {

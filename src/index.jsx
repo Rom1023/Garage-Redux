@@ -15,7 +15,7 @@ import carsReducer from './reducers/carsReducer';
 
 const reducers = combineReducers({
   cars: carsReducer,
-  garageName: 'Anonymous' // || prompt('Veuillez saisir votre username');
+  garageName: `Anonymous${Math.floor(10 + (Math.random() * 90))}` // || prompt('Veuillez saisir votre username');
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -25,7 +25,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers, {}, middlewares)}>
     <Router history={history}>
       <Switch>
-        <Route path="/:garage" component={App} />
+        <Route path="/" component={App} />
       </Switch>
     </Router>
   </Provider>,

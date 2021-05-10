@@ -4,7 +4,9 @@ import CarList from '../containers/CarList';
 
 const App = (props) => {
   return (
-    <CarList garageFromParams={props.match.params.garage} />
+    <div className="app">
+      <CarList garageFromParams={props.match.params.garage} />
+    </div>
   );
 };
 
