@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import CarList from '../containers/CarList';
 import Garage from '../containers/Garage';
 
-const CarsIndex = (props) => {
+const CarsIndex = () => {
   return (
     <div className="cars-index">
-      <Garage />
+      <Garage className="garage" />
       <Link to="/cars/new">
         Add a car
       </Link>
