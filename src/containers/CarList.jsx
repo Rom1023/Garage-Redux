@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Car from '../containers/Car';
 
@@ -8,7 +9,7 @@ import { fetchCars } from '../actions';
 
 class CarList extends Component {
   componentWillMount() {
-    this.props.fetchCars(this.props.garageFromParams);
+    this.props.fetchCars(this.props.garage);
   }
 
   render () {
@@ -16,9 +17,11 @@ class CarList extends Component {
       <div>
         {this.props.cars.map((car) => {
           return (
-            <div key={car.id}>
-              <Car />
-            </div>
+            <Link to={`/cars/${car.id}`} key={car.id}>
+              <div>
+                <Car car={car} />
+              </div>
+            </Link>
           );
         })}
       </div>
@@ -31,7 +34,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(reduxState) {
-  return { cars: reduxState.cars };
+  return {
+    cars: reduxState.cars,
+    garage: reduxState.garage
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarList);

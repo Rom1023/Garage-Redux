@@ -1,20 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class Car extends Component {
-  render () {
-    return (
-      <div>
-        <h3>{this.props.cars.brand} - {this.props.cars.model}</h3>
-        <p>Owner: {this.props.cars.owner}</p>
-      </div>
-    );
-  }
-}
+const Car = ({ car }) => {
+  return (
+    <div>
+      <h3>{car.brand} - {car.model}</h3>
+      <p>Owner: {car.owner}</p>
+    </div>
+  );
+};
 
-function mapStateToProps(reduxState) {
-  return { cars: reduxState.cars };
-}
-
-
-export default connect(mapStateToProps)(Car);
+export default Car;

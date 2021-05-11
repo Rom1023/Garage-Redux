@@ -22,7 +22,7 @@ const initialState = {
     { id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
     { id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
   ],
-  garage: `Anonymous${Math.floor(10 + (Math.random() * 90))}` // || prompt('Please enter the name of your garage')
+  garage: prompt('Please enter the name of your garage') || `Anonymous${Math.floor(10 + (Math.random() * 90))}`
 };
 
 const identityReducer = (state = null) => state;
@@ -40,8 +40,8 @@ ReactDOM.render(
   <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
       <Switch>
-        <Route path="/" component={CarsIndex} />
-        <Route path="/cars/new" component={CarsNew} />
+        <Route path="/" exact component={CarsIndex} />
+        <Route path="/cars/new" exact component={CarsNew} />
       </Switch>
     </Router>
   </Provider>,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 import { addCar } from '../actions';
 
@@ -8,7 +9,7 @@ import Garage from '../containers/Garage';
 
 class CarsNew extends Component {
   onSubmit = (values) => {
-    this.props.addCar(values, (car) => {
+    this.props.addCar(this.props.garage, values, (car) => {
       this.props.history.push('/'); // Navigate after submit
       return car;
     });
@@ -17,6 +18,9 @@ class CarsNew extends Component {
     return (
       <div className="cars-new">
         <Garage />
+        <Link to="/">
+          Back to cars
+        </Link>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <div className="form-group">
             <label htmlFor="InputBrand">Brand</label>
