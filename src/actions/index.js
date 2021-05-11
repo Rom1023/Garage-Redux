@@ -2,6 +2,7 @@
 const BASE_URL = 'https://wagon-garage-api.herokuapp.com/';
 
 export const FETCH_CARS = 'FETCH_CARS';
+export const FETCH_CAR = 'FETCH_CAR';
 export const ADD_CAR = 'ADD_CAR';
 
 export const fetchCars = (garage) => {
@@ -9,6 +10,15 @@ export const fetchCars = (garage) => {
     .then(response => response.json());
   return {
     type: FETCH_CARS,
+    payload: promise
+  };
+};
+
+export const fetchCar = (id) => {
+  const promise = fetch(`${BASE_URL}/cars/${id}`)
+    .then(response => response.json());
+  return {
+    type: FETCH_CAR,
     payload: promise
   };
 };
