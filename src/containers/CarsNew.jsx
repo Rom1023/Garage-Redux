@@ -7,6 +7,7 @@ import { addCar } from '../actions';
 
 import Garage from '../containers/Garage';
 
+
 class CarsNew extends Component {
   onSubmit = (values) => {
     this.props.addCar(this.props.garage, values, (car) => {
@@ -14,6 +15,17 @@ class CarsNew extends Component {
       return car;
     });
   };
+
+  required = (value) => {
+    return value ? undefined : 'Required';
+  };
+
+  renderField = ({ input, type, placeholder, meta: { touched, error, warning } }) => (
+    <div>
+      <input {...input} placeholder={placeholder} type={type} className="form-control" />
+      {touched && ((error && <span className="text-danger">{error}</span>) || (warning && <span className="text-warning">{warning}</span>))}
+    </div>
+  );
   render () {
     return (
       <div className="cars-new">
@@ -28,8 +40,9 @@ class CarsNew extends Component {
               className="form-control"
               name="brand"
               type="text"
-              component="input"
               placeholder="Aston Martin"
+              component={this.renderField}
+              validate={this.required}
             />
           </div>
           <div className="form-group">
@@ -38,8 +51,9 @@ class CarsNew extends Component {
               className="form-control"
               name="model"
               type="text"
-              component="input"
               placeholder="DB Mark III"
+              component={this.renderField}
+              validate={this.required}
             />
           </div>
           <div className="form-group">
@@ -48,8 +62,9 @@ class CarsNew extends Component {
               className="form-control"
               name="owner"
               type="text"
-              component="input"
               placeholder="James Bond"
+              component={this.renderField}
+              validate={this.required}
             />
           </div>
           <div className="form-group">
@@ -58,8 +73,9 @@ class CarsNew extends Component {
               className="form-control"
               name="plate"
               type="text"
-              component="input"
               placeholder="DB Mark III"
+              component={this.renderField}
+              validate={this.required}
             />
           </div>
           <button

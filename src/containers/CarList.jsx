@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Car from '../containers/Car';
+import Car from '../components/Car';
 
 import { fetchCars } from '../actions';
 
