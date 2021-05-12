@@ -7,6 +7,7 @@ import { addCar } from '../actions';
 
 import Garage from '../containers/Garage';
 
+// Validations
 const required = (value) => {
   return value ? undefined : 'Required';
 };
@@ -31,12 +32,14 @@ class CarsNew extends Component {
     });
   };
 
-  renderField = ({ input, type, placeholder, className, meta: { touched, error, warning } }) => (
-    <div>
-      <input {...input} placeholder={placeholder} type={type} className={className} />
-      {touched && ((error && <span className="text-danger">{error}</span>) || (warning && <span className="text-warning">{warning}</span>))}
-    </div>
-  );
+  renderField = ({ input, type, placeholder, className, meta: { touched, error, warning } }) => {
+    return (
+      <div>
+        <input {...input} placeholder={placeholder} type={type} className={className} />
+        {touched && ((error && <span className="text-danger">{error}</span>) || (warning && <span className="text-warning">{warning}</span>))}
+      </div>
+    );
+  };
   render () {
     return (
       <div className="cars-new">
