@@ -7,6 +7,21 @@ import { addCar } from '../actions';
 
 import Garage from '../containers/Garage';
 
+const required = (value) => {
+  return value ? undefined : 'Required';
+};
+
+const maxLength = (max) => {
+  return (value) => {
+    return value && value.length > max ? `Must be ${max} characters or less` : undefined;
+  };
+};
+
+const minLength = (min) => {
+  return (value) => {
+    return value && value.length < min ? `Must be ${min} characters or more` : undefined;
+  };
+};
 
 class CarsNew extends Component {
   onSubmit = (values) => {
@@ -16,13 +31,9 @@ class CarsNew extends Component {
     });
   };
 
-  required = (value) => {
-    return value ? undefined : 'Required';
-  };
-
-  renderField = ({ input, type, placeholder, meta: { touched, error, warning } }) => (
+  renderField = ({ input, type, placeholder, className, meta: { touched, error, warning } }) => (
     <div>
-      <input {...input} placeholder={placeholder} type={type} className="form-control" />
+      <input {...input} placeholder={placeholder} type={type} className={className} />
       {touched && ((error && <span className="text-danger">{error}</span>) || (warning && <span className="text-warning">{warning}</span>))}
     </div>
   );
@@ -42,7 +53,7 @@ class CarsNew extends Component {
               type="text"
               placeholder="Aston Martin"
               component={this.renderField}
-              validate={this.required}
+              validate={required}
             />
           </div>
           <div className="form-group">
@@ -53,7 +64,7 @@ class CarsNew extends Component {
               type="text"
               placeholder="DB Mark III"
               component={this.renderField}
-              validate={this.required}
+              validate={required}
             />
           </div>
           <div className="form-group">
@@ -64,7 +75,7 @@ class CarsNew extends Component {
               type="text"
               placeholder="James Bond"
               component={this.renderField}
-              validate={this.required}
+              validate={[required, maxLength(15), minLength(3)]}
             />
           </div>
           <div className="form-group">
@@ -75,7 +86,7 @@ class CarsNew extends Component {
               type="text"
               placeholder="DB Mark III"
               component={this.renderField}
-              validate={this.required}
+              validate={required}
             />
           </div>
           <button
