@@ -24,6 +24,10 @@ const minLength = (min) => {
   };
 };
 
+const isValidPlate = (value) => {
+  return value && !/([A-Z]{3}\d{3}|\d{3}[A-Z]{3})/g.test(value) ? 'Should be all caps and no special characters' : undefined;
+};
+
 class CarsNew extends Component {
   onSubmit = (values) => {
     this.props.addCar(this.props.garage, values, (car) => {
@@ -91,7 +95,7 @@ class CarsNew extends Component {
               type="text"
               placeholder="DB Mark III"
               component={this.renderField}
-              validate={required}
+              validate={[required, isValidPlate]}
             />
           </div>
           <button
