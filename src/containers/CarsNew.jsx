@@ -41,6 +41,8 @@ class CarsNew extends Component {
     );
   };
   render () {
+    // Props from Redux-Form
+    console.log(this.props);
     return (
       <div className="cars-new">
         <Garage />
@@ -97,6 +99,13 @@ class CarsNew extends Component {
             type="submit"
           >
             Add car
+          </button>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={this.props.reset}
+          >
+            Clear All
           </button>
         </form>
       </div>
