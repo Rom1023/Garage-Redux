@@ -102,7 +102,7 @@ class CarsNew extends Component {
           </button>
           <button
             className="btn btn-primary"
-            type="submit"
+            type="button"
             onClick={this.props.reset}
           >
             Clear All
