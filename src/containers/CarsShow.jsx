@@ -24,9 +24,12 @@ class CarsShow extends Component {
         <Link to="/">
           Back to cars
         </Link>
-        <div>
-          <h3>{this.props.car.brand} - {this.props.car.model}</h3>
-          <p>Owner: {this.props.car.owner}</p>
+        <div className="card-car">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div className="card-car-infos">
+            <h3>{this.props.car.brand} - {this.props.car.model}</h3>
+            <p>Owner: {this.props.car.owner}</p>
+          </div>
         </div>
         <button onClick={this.handleClick}>Delete</button>
       </div>
