@@ -30,8 +30,8 @@ class CarsShow extends Component {
             <h3>{this.props.car.brand} - {this.props.car.model}</h3>
             <p>Owner: {this.props.car.owner}</p>
           </div>
+          <i className="fa fa-trash-o card-car-delete-button" aria-hidden="true" onClick={this.handleClick}></i>
         </div>
-        <button onClick={this.handleClick}>Delete</button>
       </div>
     );
   }

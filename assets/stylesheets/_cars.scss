@@ -5,6 +5,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .card-car img {
@@ -29,4 +30,12 @@
 
 .card-car .card-car-infos {
   padding: 16px;
+}
+
+.card-car-delete-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
