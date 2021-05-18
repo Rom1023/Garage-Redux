@@ -1,4 +1,4 @@
-import { FETCH_CARS, FETCH_CAR, ADD_CAR } from '../actions';
+import { FETCH_CARS, FETCH_CAR, ADD_CAR, DELETE_CAR } from '../actions';
 
 const carsReducer = (state = [], action) => {
   switch (action.type) {
@@ -11,6 +11,10 @@ const carsReducer = (state = [], action) => {
       copiedState.push(action.payload);
       return copiedState;
     }
+    case DELETE_CAR : {
+      const copiedState = state.filter(car => car !== action.payload);
+      return copiedState;
+      }
     default:
       return state;
   }
