@@ -5,7 +5,8 @@ class Garage extends Component {
   render () {
     return (
       <div>
-        <h2>{this.props.garage}</h2>
+        <h2>Welcome to {this.props.garage}</h2>
+        <p>Our garage is the best. Reasonnable prices, always on time, we are the best (and fictionnal)</p>
       </div>
     );
   }

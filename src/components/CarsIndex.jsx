@@ -6,12 +6,16 @@ import Garage from '../containers/Garage';
 
 const CarsIndex = () => {
   return (
-    <div className="cars-index">
-      <Garage className="garage" />
-      <Link to="/cars/new">
-        Add a car
-      </Link>
-      <CarList />
+    <div className="cars-index d-flex">
+      <div className="col-4">
+        <Garage className="garage" />
+        <Link to="/cars/new" className="btn btn-primary">
+          Add a car
+        </Link>
+      </div>
+      <div className="flex-grow-1 ml-3">
+        <CarList />
+      </div>
     </div>
   );
 };
