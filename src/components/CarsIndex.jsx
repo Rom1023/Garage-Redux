@@ -6,14 +6,14 @@ import Garage from '../containers/Garage';
 
 const CarsIndex = () => {
   return (
-    <div className="cars-index d-flex w-100">
-      <div className="col-4">
+    <div className="cars-index">
+      <div className="left-scene">
         <Garage className="garage" />
         <Link to="/cars/new" className="btn btn-primary">
           Add a car
         </Link>
       </div>
-      <div className="flex-grow-1 ml-3">
+      <div className="right-scene">
         <CarList />
       </div>
     </div>

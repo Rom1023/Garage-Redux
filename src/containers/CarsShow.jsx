@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { fetchCar, deleteCar } from '../actions';
 
+import Garage from '../containers/Garage';
+
 class CarsShow extends Component {
   componentWillMount() {
     if (!this.props.car) {
@@ -20,11 +22,14 @@ class CarsShow extends Component {
       return <p>Loading</p>;
     }
     return (
-      <div>
-        <Link to="/">
-          Back to cars
-        </Link>
-        <div className="card-car">
+      <div  className="d-flex mt-3">
+        <div className="col-4">
+          <Garage />
+          <Link to="/" className="btn btn-primary">
+            Back to cars
+          </Link>
+        </div>
+        <div className="card-car flex-grow-1 ml-3">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div className="card-car-infos">
             <h3>{this.props.car.brand} - {this.props.car.model}</h3>

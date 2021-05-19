@@ -1,0 +1,49 @@
+@media screen and (min-width: 100px) and (max-width: 699px) {
+  .cars-index{
+    display: block;
+    margin: auto;
+  }
+  .left-scene{
+    margin-bottom: 40px;
+  }
+  .car-list {
+    display: block;
+ }
+}
+
+@media screen and (min-width: 700px) {
+  .cars-index{
+    display: flex;
+  }
+  .left-scene{
+    flex-basis: 50%;
+    margin-right: 15px;
+  }
+  .right-scene{
+    flex-basis: 50%;
+    .car-list {
+      display: grid;
+      grid-template-columns: 1fr;
+   }
+  }
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .cars-index{
+    display: flex;
+  }
+  .left-scene{
+    flex-basis: 30%;
+    margin-right: 15px;
+  }
+  .right-scene{
+    flex-basis: 70%;
+    .car-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+   }
+  }
+}

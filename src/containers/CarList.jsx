@@ -14,7 +14,7 @@ class CarList extends Component {
 
   render () {
     return (
-      <div>
+      <div className="car-list">
         {this.props.cars.map((car) => {
           return (
             <Link to={`/cars/${car.id}`} key={car.id}>
