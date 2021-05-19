@@ -6,7 +6,7 @@ import Garage from '../containers/Garage';
 
 const CarsIndex = () => {
   return (
-    <div className="cars-index d-flex">
+    <div className="cars-index d-flex w-100">
       <div className="col-4">
         <Garage className="garage" />
         <Link to="/cars/new" className="btn btn-primary">
